@@ -23,7 +23,7 @@ debug.sf.hw=1
 debug.egl.hw=1
 debug.composition.type=gpu
 debug.enabletr=true
-ro.hwui.renderer.disable_opaque=true
+ro.hwui.renderer.disable_opaque=false
 ro.sf.lcd_density=480
 debug.mdpcomp.maxlayer=3
 debug.egl.buffcount=4
@@ -36,17 +36,17 @@ dev.pm.dyn_samplingrate=1
 # system props for the cne module
 #
 persist.cne.UseCne=vendor
-persist.cne.UseSwim=false
+persist.cne.UseSwim=true
 persist.cne.bat.range.low.med=30
 persist.cne.bat.range.med.high=60
 persist.cne.loc.policy.op=/system/etc/OperatorPolicy.xml
 persist.cne.loc.policy.user=/system/etc/UserPolicy.xml
-persist.cne.bwbased.rat.sel=false
-persist.cne.snsr.based.rat.mgt=false
-persist.cne.bat.based.rat.mgt=false
+persist.cne.bwbased.rat.sel=true
+persist.cne.snsr.based.rat.mgt=true
+persist.cne.bat.based.rat.mgt=true
 persist.cne.rat.acq.time.out=30000
 persist.cne.rat.acq.retry.tout=0
-persist.cne.sync.swim.mode=false
+persist.cne.sync.swim.mode=true
 
 ro.hdmi.enable=true
 lpa.decode=true
@@ -72,8 +72,8 @@ ro.use_data_netmgrd=true
 persist.timed.enable=true
 
 # System props for audio
-persist.audio.fluence.mode=endfire
-persist.audio.vr.enable=false
+persist.audio.fluence.mode=fluence
+persist.audio.vr.enable=true
 persist.audio.handset.mic=digital
 # System props for soundhound
 persist.htc.audio.pcm.samplerate=48000
@@ -109,17 +109,12 @@ ro.ril.transmitpower=true
 ro.baseband.arch = mdm
 
 #Add default network type for phone reference
-ro.telephony.default_network=10
+ro.telephony.default_network=4
 
 #
 #Simulate sdcard on /data/media
 #
-persist.fuse_sdcard=true
-# for erase_dirty_fat tool
-ro.clean_free_cluster_threshold = 8
-
-# Have external SD card
-	ro.sdcard2 = 1
+persist.fuse_sdcard=false
 
 # DLX Hardware Info
 ro.product.bluetooth=4.0
@@ -128,17 +123,17 @@ ro.product.main_camera = 8M
 ro.product.front_camera = 2.1M
 ro.product.processor = Quadcore
 ro.product.ram = 2GB
-ro.product.wifi = 802.11 a/b/g/n
+ro.product.wifi = 802.11 b/g/n
 
 
 #wifi
 wifi.interface=wlan0
-wifi.supplicant_scan_interval=15
+wifi.supplicant_scan_interval=16
 wifi.softap.interface=wlan0
 wifi.softapconcurrent.interface=wl0.1
 persist.wifi.v6=true
 persist.wifi.v6.rs.count=5
-persist.wifi.v6.rs.timeout=5
+persist.wifi.v6.rs.timeout=0
 
 # Properties of BTLA stack
 service.brcm.bt.activation = 0
