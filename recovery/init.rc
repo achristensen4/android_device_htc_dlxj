@@ -48,23 +48,21 @@ service ueventd /sbin/ueventd
     critical
 
 service recovery /sbin/recovery
-    disabled
+class main
 
 service adbd /sbin/adbd recovery
-    disabled
+
 
 service detect_key /sbin/detect_key
-    disabled
     oneshot
 
 service offmode_charging /sbin/offmode_charging
-    disabled
     oneshot
 
 # Always start adbd on userdebug and eng builds
 on property:ro.debuggable=1
-    #write /sys/class/android_usb/android0/enable 1
-    #start adbd
+    write /sys/class/android_usb/android0/enable 1
+    start adbd
     setprop service.adb.root 1
 
 # Restart adbd so it can run as root
